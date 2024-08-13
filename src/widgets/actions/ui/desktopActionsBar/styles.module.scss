@@ -1,0 +1,12 @@
+.actionsDesktop {
+  margin-top: 10px;
+  background: rgba(51, 51, 51, 0.16);
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 15px;
+    padding: 15px 0;
+  }
+}

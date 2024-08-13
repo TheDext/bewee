@@ -1,0 +1,13 @@
+@use "/src/app/styles/veriables/global";
+
+.logo {
+  text-align: center;
+  &__top {
+    font-size: 35px;
+    //color: global.$greySoft;
+  }
+  &__bottom {
+    font-size: 18px;
+    //color: global.$greyRough;
+  }
+}

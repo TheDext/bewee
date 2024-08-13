@@ -1,0 +1,16 @@
+$maxWidth: 1320; //Ширина контейнера: контент
+$sideIndent: 20; //Боковой отступ (кол-во px с одной стороны)
+$maxWidthContainer: #{$maxWidth + $sideIndent * 2}px; //Ширина контейнера: контент + боковые отступы
+
+$tablet: 992px; // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: 768px; // Телефоны L
+$mobileSmall: 480px; // Телефоны S
+
+$pinkSoft: #eecdc4;
+$pinkRough: #ead0cf;
+
+$greySoft: #f3e9e7;
+$greyRough: #d8c9c6;
+
+$greenSot: #cecabf;
+$greenRough: #aaafa8;

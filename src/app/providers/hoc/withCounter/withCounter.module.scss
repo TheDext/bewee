@@ -1,0 +1,27 @@
+.iconComponent {
+  position: relative;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #FEAAE1;
+    color: #000000;
+    font-size: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: translate(20%, -20%);
+  }
+}

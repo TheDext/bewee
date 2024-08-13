@@ -1,0 +1,17 @@
+.info {
+  outline: 1px solid transparent;
+
+}
+.info__list {
+  display: flex;
+  column-gap: 20px;
+}
+.info__item {
+  outline: 1px solid transparent;
+}
+.info__link {
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

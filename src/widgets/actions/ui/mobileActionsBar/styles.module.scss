@@ -1,0 +1,24 @@
+.actionsMobile {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+  z-index: 2;
+  background: #ffffff;
+
+  &__row {
+    justify-content: space-between;
+    display: flex;
+    padding: 15px 0;
+
+    & > * {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .searchIcon {
+    width: 30px;
+  }
+}

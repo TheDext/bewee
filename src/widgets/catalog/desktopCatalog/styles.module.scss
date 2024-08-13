@@ -1,0 +1,34 @@
+.catalog {
+  padding: 0 20px;
+
+  &__rowWrapper {
+    position: relative;
+
+  }
+  &__row {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__subcatalog {
+    outline: 1px solid transparent;
+  }
+
+  ul {
+    flex: 0 1 33.333%;
+    background: #ffffff;
+    border-right: 1px solid #74CCD8;
+    li {
+      border-bottom: 1px solid #74CCD8;
+      padding: 20px;
+    }
+  }
+
+  &__category {
+    outline: 1px solid transparent;
+
+  }
+}
