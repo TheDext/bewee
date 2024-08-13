@@ -1,3 +1,5 @@
+@use "app/styles/veriables/global";
+
 .iconComponent {
   position: relative;
   width: 40px;
@@ -14,7 +16,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background-color: #FEAAE1;
+    background-color: global.$greyRough;
     color: #000000;
     font-size: 12px;
 

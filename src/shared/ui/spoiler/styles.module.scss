@@ -1,13 +1,8 @@
 .spoiler {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 16px;
+  outline: 1px solid transparent;
 }
 
 .spoiler__title {
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
   cursor: pointer;
 }
 

@@ -25,14 +25,14 @@
   }
   &__submit {
     padding: 15px 25px;
-    background: #74CCD8;
+    background: global.$pinkSoft;
 
     border-radius: 0 30px 30px 0;
     margin: -1px;
     transition: all 0.3s ease 0s;
 
     &:hover {
-      background: #0abbd3;
+      background: global.$pinkHover;
       cursor: pointer;
     }
   }

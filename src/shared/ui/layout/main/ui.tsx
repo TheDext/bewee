@@ -10,6 +10,7 @@ import { Header } from 'widgets/header';
 import { Catalog } from 'widgets/catalog';
 import { getMobileMenuVisible } from 'entities/mobileMenu/model/slice';
 import { MobileMenu } from 'widgets/mobileMenu/ui';
+import { Footer } from 'widgets/footer';
 
 interface MainLayoutProps {
     children: ReactNode;
@@ -20,13 +21,15 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
     const showCatalog = useSelector(getCatalogVisible());
     const showMobileMenu = useSelector(getMobileMenuVisible());
 
+    const lockScroll = showMobileSearchBar || showMobileMenu;
+
     return (
-        <div className="app">
+        <div className={classNames('app', { [classes._lock]: lockScroll }, [])}>
             <Header />
             <Actions />
             {showMobileSearchBar && <Search />}
             {showCatalog && <Catalog />}
-            {showMobileMenu && <MobileMenu />}
+            <MobileMenu />
             <main
                 className={classNames(
                     '',
@@ -36,6 +39,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
             >
                 {children}
             </main>
+            <Footer />
         </div>
     );
 };
