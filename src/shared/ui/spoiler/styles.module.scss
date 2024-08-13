@@ -1,0 +1,35 @@
+.spoiler {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.spoiler__title {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.spoiler__content {
+  height: 50px;
+  overflow: hidden;
+}
+
+.spoiler__contentEnter {
+  height: 0px;
+}
+
+.spoiler__contentEnterActive {
+  height: 50px;
+  transition: all 0.4s ease;
+}
+
+.spoiler__contentExit {
+  height: 50px;
+}
+
+.spoiler__contentExitActive {
+  height: 0px;
+  transition: all 0.4s ease;
+}

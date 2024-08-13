@@ -1,7 +1,6 @@
 //@ts-nocheck
 import * as classes from './styles.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { getScreenSize } from 'entities/screenSize/model/slice';
 import {
     getCatalogVisible,
     toggleShowCatalog,
@@ -10,7 +9,6 @@ import classNames from 'shared/lib/classNames/classNames';
 import { setExcludeElement } from 'entities/excludeElement/model/slice';
 
 export const CatalogIcon = () => {
-    const { isMobile } = useSelector(getScreenSize());
     const isShow = useSelector(getCatalogVisible());
     const dispatch = useDispatch();
 
@@ -32,9 +30,7 @@ export const CatalogIcon = () => {
             <div className={classes.catalogIcon__icon}>
                 <span></span>
             </div>
-            {!isMobile && (
-                <div className={classes.catalogIcon__text}>Каталог</div>
-            )}
+            <div className={classes.catalogIcon__text}>Каталог</div>
         </button>
     );
 };
