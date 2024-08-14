@@ -1,5 +1,5 @@
 import { Logo } from 'widgets/header/ui/logo';
-import { Info } from 'widgets/header/ui/info';
+import { Navigation } from 'widgets/header/ui/navigations';
 import { Socials } from 'shared/ui/socials';
 import * as classes from './styles.module.scss';
 import { useSelector } from 'react-redux';
@@ -15,7 +15,7 @@ export const Header = () => {
                 ) : (
                     <div className={classes.header__row}>
                         <Logo />
-                        <Info />
+                        <Navigation />
                         <Socials />
                     </div>
                 )}
