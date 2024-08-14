@@ -1,0 +1,20 @@
+.footerContactsTitle {
+  font-weight: 700;
+}
+.footerContactsRow {
+  display: flex;
+  flex-direction: column;
+}
+.footerContactsItem {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    outline: 1px solid transparent;
+    width: 23px;
+  }
+
+  &__text {
+    outline: 1px solid transparent;
+  }
+}
