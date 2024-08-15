@@ -1,0 +1,25 @@
+@use "app/styles/veriables/global";
+
+footer {
+  padding: 20px 0;
+  border-top: 1px solid #333333;
+  background: global.$greySoft;
+}
+.footerTitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.footerRow {
+  display: flex;
+}
+.footerColumn {
+  flex: 0 1 33.333%;
+  padding: 0 25px;
+}
+
+@media (max-width: global.$mobile) {
+  footer{
+    padding-bottom: 80px;
+  }
+}

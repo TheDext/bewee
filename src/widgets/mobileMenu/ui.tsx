@@ -14,7 +14,7 @@ export const MobileMenu = () => {
         isMobile && (
             <CSSTransition
                 in={showMobileMenu}
-                timeout={400}
+                timeout={300}
                 classNames={{
                     enter: classes.mobileMenu__contentEnter,
                     enterActive: classes.mobileMenu__contentEnterActive,
@@ -30,16 +30,24 @@ export const MobileMenu = () => {
                     <div className={classes.mobileMenu__body}>
                         <div className={classes.mobileMenu__item}>Каталог</div>
                         <div className={classes.mobileMenu__item}>
-                            <Spoiler title="Акции">Акции</Spoiler>
-                        </div>
-                        <div className={classes.mobileMenu__item}>
-                            <Spoiler title="Акции">Акции</Spoiler>
-                        </div>
-                        <div className={classes.mobileMenu__item}>
-                            <Spoiler title="Акции">Акции</Spoiler>
-                        </div>
-                        <div className={classes.mobileMenu__item}>
-                            <Spoiler title="Акции">Акции</Spoiler>
+                            <Spoiler
+                                title="Акции"
+                                classEnter={classes.mobileMenuSpoilerEnter}
+                                classEnterActive={
+                                    classes.mobileMenuSpoilerEnterActive
+                                }
+                                classExit={classes.mobileMenuSpoilerExit}
+                                classExitActive={
+                                    classes.mobileMenuSpoilerExitActive
+                                }
+                            >
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Accusamus adipisci assumenda,
+                                consequuntur cum dignissimos ea eaque eligendi
+                                eos esse ex illum ipsam molestiae non
+                                perspiciatis quasi repellendus sed vel
+                                voluptatum. lorem
+                            </Spoiler>
                         </div>
                     </div>
                 </div>

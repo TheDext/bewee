@@ -1,0 +1,49 @@
+.mobileFooterContactsSpoilerEnter {
+  height: 0;
+}
+.mobileFooterContactsSpoilerEnterActive {
+  height: 42px;
+  transition: all 0.3s ease 0s;
+}
+.mobileFooterContactsSpoilerExit {
+  height: 42px;
+}
+.mobileFooterContactsSpoilerExitActive {
+  height: 0;
+  transition: all 0.3s ease 0s;
+}
+
+.mobileFooterMenuSpoilerEnter {
+  height: 0;
+}
+.mobileFooterMenuSpoilerEnterActive {
+  height: 110px;
+  transition: all 0.3s ease 0s;
+}
+.mobileFooterMenuSpoilerExit {
+  height: 110px;
+}
+.mobileFooterMenuSpoilerExitActive {
+  height: 0;
+  transition: all 0.3s ease 0s;
+}
+
+.mobileFooterSocialsSpoilerEnter {
+  height: 0;
+}
+.mobileFooterSocialsSpoilerEnterActive {
+  height: 38px;
+  transition: all 0.3s ease 0s;
+}
+.mobileFooterSocialsSpoilerExit {
+  height: 38px;
+}
+.mobileFooterSocialsSpoilerExitActive {
+  height: 0;
+  transition: all 0.3s ease 0s;
+}
+
+.mobileFooterTitle {
+  font-size: 18px;
+  font-weight: 500;
+}

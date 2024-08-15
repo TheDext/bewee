@@ -4,6 +4,7 @@ import { Socials } from 'shared/ui/socials';
 import * as classes from './styles.module.scss';
 import { useSelector } from 'react-redux';
 import { getScreenSize } from 'entities/screenSize/model/slice';
+import { HeaderSocials } from 'widgets/header/ui/headerSocials';
 
 export const Header = () => {
     const { isMobile } = useSelector(getScreenSize());
@@ -16,7 +17,7 @@ export const Header = () => {
                     <div className={classes.header__row}>
                         <Logo />
                         <Navigation />
-                        <Socials />
+                        <HeaderSocials />
                     </div>
                 )}
             </div>

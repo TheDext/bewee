@@ -1,15 +1,15 @@
-.info {
+.navigation {
   outline: 1px solid transparent;
 
 }
-.info__list {
+.navigation__list {
   display: flex;
   column-gap: 20px;
 }
-.info__item {
+.navigation__item {
   outline: 1px solid transparent;
 }
-.info__link {
+.navigation__link {
 
   &:hover {
     text-decoration: underline;

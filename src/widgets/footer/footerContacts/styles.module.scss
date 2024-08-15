@@ -1,17 +1,20 @@
-.footerContactsTitle {
+.footerTitle {
   font-weight: 700;
 }
 .footerContactsRow {
   display: flex;
   flex-direction: column;
+  row-gap: 10px;
 }
 .footerContactsItem {
   display: flex;
   align-items: center;
+  column-gap: 8px;
+
 
   &__icon {
     outline: 1px solid transparent;
-    width: 23px;
+    width: 18px;
   }
 
   &__text {

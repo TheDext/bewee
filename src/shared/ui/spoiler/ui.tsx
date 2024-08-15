@@ -1,20 +1,28 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import * as classes from './styles.module.scss';
+import classNames from 'shared/lib/classNames/classNames';
 
 interface SpoilerProps {
     title: string;
     children: React.ReactNode;
-    className?: string;
+    classTitle?: string;
+    classEnter: string;
+    classEnterActive: string;
+    classExit: string;
+    classExitActive: string;
 }
 
 export const Spoiler: React.FC<SpoilerProps> = ({
     title,
     children,
-    className,
+    classTitle,
+    classEnter,
+    classEnterActive,
+    classExit,
+    classExitActive,
 }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const contentRef = useRef<HTMLDivElement>(null);
 
     const handleToggle = () => {
         setIsOpen(!isOpen);
@@ -22,23 +30,28 @@ export const Spoiler: React.FC<SpoilerProps> = ({
 
     return (
         <div className={classes.spoiler}>
-            <button onClick={handleToggle} className={classes.spoiler__title}>
+            <button
+                onClick={handleToggle}
+                className={classNames(
+                    classes.spoiler__title,
+                    { [classTitle]: classTitle },
+                    []
+                )}
+            >
                 {title}
             </button>
             <CSSTransition
                 in={isOpen}
                 timeout={400}
                 classNames={{
-                    enter: classes.spoiler__contentEnter,
-                    enterActive: classes.spoiler__contentEnterActive,
-                    exit: classes.spoiler__contentExit,
-                    exitActive: classes.spoiler__contentExitActive,
+                    enter: classEnter,
+                    enterActive: classEnterActive,
+                    exit: classExit,
+                    exitActive: classExitActive,
                 }}
                 unmountOnExit
             >
-                <div ref={contentRef} className={classes.spoiler__content}>
-                    {children}
-                </div>
+                <div className={classes.spoiler__content}>{children}</div>
             </CSSTransition>
         </div>
     );

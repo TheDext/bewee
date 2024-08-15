@@ -16,7 +16,6 @@
     padding-bottom: 60px;
   }
   &__item {
-
     padding: 10px;
     &:not(:last-child) {
       margin-bottom: 10px;
@@ -38,4 +37,19 @@
     transform: translate(-100%, 0);
     transition: all 0.4s ease;
   }
+}
+
+.mobileMenuSpoilerEnter {
+  height: 0;
+}
+.mobileMenuSpoilerEnterActive {
+  height: 60px;
+  transition: all 0.3s ease 0s;
+}
+.mobileMenuSpoilerExit {
+  height: 60px;
+}
+.mobileMenuSpoilerExitActive {
+  transition: all 0.3s ease 0s;
+  height: 0;
 }
