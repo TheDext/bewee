@@ -34,7 +34,7 @@ export const Spoiler: React.FC<SpoilerProps> = ({
                 onClick={handleToggle}
                 className={classNames(
                     classes.spoiler__title,
-                    { [classTitle]: classTitle },
+                    { [classTitle]: classTitle, [classes._isOpen]: isOpen },
                     []
                 )}
             >

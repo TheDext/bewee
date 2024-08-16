@@ -4,6 +4,39 @@
 
 .spoiler__title {
   cursor: pointer;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: #000000;
+    width: 8px;
+    height: 2px;
+    top: 50%;
+    right: 0;
+    transform: translate(250%, -50%) rotate(-45deg);
+    transition: all 0.3s ease 0s;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: #000000;
+    width: 8px;
+    height: 2px;
+    top: 50%;
+    right: 5px;
+    transform: translate(250%, -50%) rotate(45deg);
+    transition: all 0.3s ease 0s;
+  }
+
+  &._isOpen {
+    &::before {
+      transform: translate(250%, -50%) rotate(45deg);
+    }
+   &:after {
+     transform: translate(250%, -50%) rotate(-45deg);
+   }
+  }
 }
 
 .spoiler__content {
