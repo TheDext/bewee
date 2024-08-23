@@ -12,8 +12,16 @@ const useOutsideClick = ({ callback }: UseOutsideClickProps) => {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            console.log('event', event);
-            console.log('element', document.getElementById(excludeElementId));
+            const clickedEl = event.target as HTMLElement;
+
+            if (excludeElementId) {
+                const yeah =
+                    clickedEl.closest(`#${excludeElementId}`) ||
+                    clickedEl.id === excludeElementId;
+                if (yeah) {
+                    console.log('Не дёргаемся');
+                }
+            }
             if (ref.current && !ref.current.contains(event.target as Node)) {
                 callback();
             }

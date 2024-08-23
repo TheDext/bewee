@@ -6,15 +6,18 @@ import {
     toggleShowCatalog,
 } from 'entities/catalog/model/slice';
 import classNames from 'shared/lib/classNames/classNames';
-import { setExcludeElement } from 'entities/excludeElement/model/slice';
+import {
+    setExcludeElement,
+    removeExcludeElement,
+} from 'entities/excludeElement/model/slice';
 
 export const CatalogIcon = () => {
     const isShow = useSelector(getCatalogVisible());
     const dispatch = useDispatch();
 
-    const handleClick = (e) => {
-        dispatch(setExcludeElement(e.currentTarget.id));
+    const handleClick = ({ target }) => {
         dispatch(toggleShowCatalog(!isShow));
+        dispatch(setExcludeElement(target.id));
     };
 
     return (

@@ -26,18 +26,11 @@ export const DesktopCatalog = () => {
     const mainCatalog = useSelector(getCatalogById(mainCatalogId));
     const subcatalog = useSelector(getCatalogById(subcatalogId, true));
 
-    console.log('mainCatalog', mainCatalog);
-    console.log('subcatalog', subcatalog);
-
     const handleClickOutside = () => {
-        console.log('!!!', excludeElement);
-        if (!excludeElement && isShow) {
-            console.log('Клик вне компонента desktopCatalog');
-            dispatch(toggleShowCatalog(false));
-        }
+        // console.log('Клик вне компонента desktopCatalog');
+        dispatch(toggleShowCatalog(false));
     };
     const ref = useOutsideClick({ callback: handleClickOutside });
-    console.log(ref);
     return (
         <nav ref={ref} className={classes.catalog}>
             <div

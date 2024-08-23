@@ -16,10 +16,14 @@ export const excludeElementSlice = createSlice({
         setExcludeElement: (state, action) => {
             state.element = action.payload;
         },
+        removeExcludeElement: (state) => {
+            state.element = '';
+        },
     },
 });
 
-export const { setExcludeElement } = excludeElementSlice.actions;
+export const { setExcludeElement, removeExcludeElement } =
+    excludeElementSlice.actions;
 
 export const getExcludeElement = () => (state: RootState) =>
     state.excludeElement.element;

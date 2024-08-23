@@ -1,10 +1,10 @@
 import { MainLayout } from 'shared/ui/layout/main/ui';
-import { Spoiler } from 'shared/ui/spoiler';
+import { MainScreen } from 'widgets/mainScreen';
 
 const MainPage = () => {
     return (
         <MainLayout>
-            <></>
+            <MainScreen />
         </MainLayout>
     );
 };

@@ -10,3 +10,9 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+@media (max-width: global.$mobile) {
+  header {
+    padding: 15px 0;
+  }
+}

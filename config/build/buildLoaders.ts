@@ -1,11 +1,11 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
-import {BuildOptions} from './types/config';
+import { BuildOptions } from './types/config';
 
 export default function buildLoaders(
     options: BuildOptions
 ): webpack.RuleSetRule[] {
-    const {isDev} = options;
+    const { isDev } = options;
     // const babelLoader = {
     //   test: /\.(js|jsx|ts|tsx)$/,
     //   exclude: /node_modules/,
@@ -21,7 +21,6 @@ export default function buildLoaders(
         use: 'ts-loader',
         exclude: /node_modules/,
     };
-
     const sassloader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -38,11 +37,18 @@ export default function buildLoaders(
             'sass-loader',
         ],
     };
-
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack', 'url-loader'],
-    }
+    };
+    const imagesLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    };
 
-    return [typescriptLoader, sassloader, svgLoader];
+    return [typescriptLoader, sassloader, svgLoader, imagesLoader];
 }

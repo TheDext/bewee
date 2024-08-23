@@ -23,6 +23,6 @@ export const { setShowSearch } = searchSlice.actions;
 
 export default searchSlice.reducer;
 
-export const getShowMobileSearchBar = () => (state: RootState) => {
+export const getMobileSearchBarVisible = () => (state: RootState) => {
     return state.search.showMobileSearchBar;
 };
