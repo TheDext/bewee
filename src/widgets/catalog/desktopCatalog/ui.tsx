@@ -3,7 +3,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getCatalogById,
-    getCatalogVisible,
     getCurrentCatalog,
     getNavCategories,
     setMainCatalog,
@@ -14,20 +13,16 @@ import * as classes from './styles.module.scss';
 import { CatalogList } from 'widgets/catalog/catalogList';
 import classNames from 'shared/lib/classNames/classNames';
 import useOutsideClick from 'app/providers/hook/useHandleClickOutside';
-import { getExcludeElement } from 'entities/excludeElement/model/slice';
 
 export const DesktopCatalog = () => {
     const categories = useSelector(getNavCategories());
-    const isShow = useSelector(getCatalogVisible());
     const { mainCatalogId, subcatalogId } = useSelector(getCurrentCatalog());
-    const excludeElement = useSelector(getExcludeElement());
     const dispatch = useDispatch();
 
     const mainCatalog = useSelector(getCatalogById(mainCatalogId));
     const subcatalog = useSelector(getCatalogById(subcatalogId, true));
 
     const handleClickOutside = () => {
-        // console.log('Клик вне компонента desktopCatalog');
         dispatch(toggleShowCatalog(false));
     };
     const ref = useOutsideClick({ callback: handleClickOutside });

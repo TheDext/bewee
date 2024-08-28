@@ -3,7 +3,6 @@
 .mainSlider {
   &__slide {
     background: rgba(108, 245, 108, 0.51);
-    //width: 745px;
     img {
       max-width: 100%;
       width: 100%;
@@ -16,8 +15,5 @@
 @media (max-width: global.$tablet) {
   .mainSlider__slide img {
     max-width: 100%;
-
-    //width: auto;
-    //height: auto;
   }
 }

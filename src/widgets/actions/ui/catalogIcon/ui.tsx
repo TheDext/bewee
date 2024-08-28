@@ -15,9 +15,9 @@ export const CatalogIcon = () => {
     const isShow = useSelector(getCatalogVisible());
     const dispatch = useDispatch();
 
-    const handleClick = ({ target }) => {
+    const handleClick = ({ currentTarget }) => {
         dispatch(toggleShowCatalog(!isShow));
-        dispatch(setExcludeElement(target.id));
+        dispatch(setExcludeElement(currentTarget.id));
     };
 
     return (

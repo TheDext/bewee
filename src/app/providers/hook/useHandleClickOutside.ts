@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { getExcludeElement } from 'entities/excludeElement/model/slice';
 
 interface UseOutsideClickProps {
-    callback: () => void;
+    callback: (event: MouseEvent) => void; // Передаем событие в callback
 }
 
 const useOutsideClick = ({ callback }: UseOutsideClickProps) => {
@@ -12,25 +12,23 @@ const useOutsideClick = ({ callback }: UseOutsideClickProps) => {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            const clickedEl = event.target as HTMLElement;
+            const clickedEl = event.target as HTMLElement; // Получаем кликнутый элемент
+            const excludeEl = document.getElementById(excludeElementId);
 
-            if (excludeElementId) {
-                const yeah =
-                    clickedEl.closest(`#${excludeElementId}`) ||
-                    clickedEl.id === excludeElementId;
-                if (yeah) {
-                    console.log('Не дёргаемся');
-                }
+            if (excludeEl && excludeEl.contains(clickedEl)) {
+                console.log('Пропускаем. Это исключение');
+                return;
             }
-            if (ref.current && !ref.current.contains(event.target as Node)) {
-                callback();
+
+            if (ref.current && !ref.current.contains(clickedEl)) {
+                callback(event); // Передаем событие в callback
             }
         };
 
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('click', handleClickOutside);
 
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('click', handleClickOutside);
         };
     }, [callback]);
 
