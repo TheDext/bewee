@@ -5,8 +5,8 @@ import {
     getCatalogById,
     getCurrentCatalog,
     getNavCategories,
-    setMainCatalog,
-    setSubCatalog,
+    setCategory,
+    setSubcategory,
     toggleShowCatalog,
 } from 'entities/catalog/model/slice';
 import * as classes from './styles.module.scss';
@@ -16,11 +16,11 @@ import useOutsideClick from 'app/providers/hook/useHandleClickOutside';
 
 export const DesktopCatalog = () => {
     const categories = useSelector(getNavCategories());
-    const { mainCatalogId, subcatalogId } = useSelector(getCurrentCatalog());
+    const { categoryId, subcategoryId } = useSelector(getCurrentCatalog());
     const dispatch = useDispatch();
 
-    const mainCatalog = useSelector(getCatalogById(mainCatalogId));
-    const subcatalog = useSelector(getCatalogById(subcatalogId, true));
+    const category = useSelector(getCatalogById(categoryId));
+    const subcategory = useSelector(getCatalogById(subcategoryId, true));
 
     const handleClickOutside = () => {
         dispatch(toggleShowCatalog(false));
@@ -36,18 +36,18 @@ export const DesktopCatalog = () => {
                 <div className={classes.catalog__row}>
                     <CatalogList
                         list={categories}
-                        handleClick={(id) => dispatch(setMainCatalog(id))}
+                        handleClick={(id) => dispatch(setCategory(id))}
                         className={classes.catalog__category}
                     />
-                    {mainCatalog && (
+                    {category && (
                         <CatalogList
-                            list={mainCatalog}
+                            list={category}
                             className={classes.catalog__subcatalog}
-                            handleClick={(id) => dispatch(setSubCatalog(id))}
+                            handleClick={(id) => dispatch(setSubcategory(id))}
                         />
                     )}
-                    {subcatalog && (
-                        <CatalogList list={subcatalog} className="Ad" />
+                    {subcategory && (
+                        <CatalogList list={subcategory} className="Ad" />
                     )}
                 </div>
             </div>

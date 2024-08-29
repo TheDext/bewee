@@ -15,18 +15,18 @@ export interface NavCategories {
 
 export interface CatalogState {
     showCatalog: boolean;
-    navCategories: NavCategories[];
-    catalogsInitialData: CatalogItem;
-    subcatalogsInitialData: CatalogItem;
-    currentCatalogIds: {
-        mainCatalogId: string;
-        subcatalogId: string;
+    categories: NavCategories[];
+    subcategories: CatalogItem;
+    types: CatalogItem;
+    catalogCurrentIds: {
+        categoryId: string;
+        subcategoryId: string;
     };
 }
 
 const initialState: CatalogState = {
     showCatalog: false,
-    navCategories: [
+    categories: [
         {
             _id: 'j8GfpxyYQEmEj15mNuVKUw',
             name: 'Малышы 0-2',
@@ -36,7 +36,7 @@ const initialState: CatalogState = {
             name: 'Девочки',
         },
     ],
-    catalogsInitialData: {
+    subcategories: {
         j8GfpxyYQEmEj15mNuVKUw: [
             {
                 _id: 'w8afpxyYQEwghsf15mNucxag',
@@ -64,7 +64,7 @@ const initialState: CatalogState = {
             },
         ],
     },
-    subcatalogsInitialData: {
+    types: {
         xWhGw2k1WU6rW6QtM6eCGw: [
             {
                 _id: 'YKrAV7AGUE6iGPxhi8NNqw',
@@ -90,9 +90,9 @@ const initialState: CatalogState = {
             },
         ],
     },
-    currentCatalogIds: {
-        mainCatalogId: '',
-        subcatalogId: '',
+    catalogCurrentIds: {
+        categoryId: '',
+        subcategoryId: '',
     },
 };
 
@@ -103,21 +103,21 @@ export const catalogSlice = createSlice({
         toggleShowCatalog: (state, action) => {
             state.showCatalog = action.payload;
         },
-        setMainCatalog: (state, action) => {
-            state.currentCatalogIds.mainCatalogId = action.payload;
-            state.currentCatalogIds.subcatalogId = '';
+        setCategory: (state, action) => {
+            state.catalogCurrentIds.categoryId = action.payload;
+            state.catalogCurrentIds.subcategoryId = '';
         },
-        setSubCatalog: (state, action) => {
-            if (state.currentCatalogIds.subcatalogId === action.payload) {
-                state.currentCatalogIds.subcatalogId = '';
+        setSubcategory: (state, action) => {
+            if (state.catalogCurrentIds.subcategoryId === action.payload) {
+                state.catalogCurrentIds.subcategoryId = '';
                 return;
             }
-            state.currentCatalogIds.subcatalogId = action.payload;
+            state.catalogCurrentIds.subcategoryId = action.payload;
         },
     },
 });
 
-export const { toggleShowCatalog, setMainCatalog, setSubCatalog } =
+export const { toggleShowCatalog, setCategory, setSubcategory } =
     catalogSlice.actions;
 
 export default catalogSlice.reducer;
@@ -125,18 +125,17 @@ export default catalogSlice.reducer;
 export const getCatalogVisible = () => (state: RootState) =>
     state.catalog.showCatalog;
 export const getCurrentCatalog = () => (state: RootState) =>
-    state.catalog.currentCatalogIds;
+    state.catalog.catalogCurrentIds;
 export const getNavCategories = () => (state: RootState) =>
-    state.catalog.navCategories;
-export const getCatalogInitialData = () => (state: RootState) =>
-    state.catalog.catalogsInitialData;
+    state.catalog.categories;
+
 
 export const getCatalogById =
-    (_id: string, subcatalog: boolean = false) =>
+    (_id: string, productType: boolean = false) =>
     (state: RootState) => {
         return !_id
             ? null
-            : subcatalog
-              ? state.catalog.subcatalogsInitialData[_id]
-              : state.catalog.catalogsInitialData[_id];
+            : productType
+              ? state.catalog.types[_id]
+              : state.catalog.subcategories[_id];
     };
